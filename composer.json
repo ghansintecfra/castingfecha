@@ -1,0 +1,8 @@
+{
+    "name": "ghansintecfra/castingfecha",
+    "description": "Castea la fecha, y cambia los numeros de formato 3 DIA/MES a solo el numero o aumenta lo indicado a una fecha",
+    "require": {
+        "php": ">=5.3.3",
+        "nesbot/carbon": "^1.22"
+    }
+}
