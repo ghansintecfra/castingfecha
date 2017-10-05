@@ -41,5 +41,45 @@ class CastingFecha
     	}
     }
 
+    public function agregarFecha($cadena,$fecha)
+    {
+    	$fechaC=$this->convertirNumero($cadena);
+    	switch ($fechaC[1]) {
+    		case 'DIAS':case 'dias':case 'Dias':case 'DIA':case 'dia':case 'Dia':
+    			$fechaN=Carbon::parse($fecha)->addDays($fechaC[0]);
+    			break;
+    		case 'MESES':case 'meses':case 'Meses':case 'MES': case 'mes':case 'Mes':
+    			$fechaN=Carbon::parse($fecha)->addMonths($fechaC);
+    			break;
+    		case 'SEMANAS':case 'semanas':case 'Semanas':case 'SEMANA':case 'semana':case 'Semana':
+    			$fechaN=Carbon::parse($fecha)->addWeeks($fechaC[0]);
+    			break;
+    		case 'AÑOS':
+    			$fechaN=Carbon::parse($fecha)->addYears($fechaC[0]);
+    			break;
+    	}
+    	return $fechaN;
+    }
+
+    public function restarFecha($cadena,$fecha)
+    {
+    	$fechaC=$this->convertirNumero($cadena);
+    	switch ($fechaC[1]) {
+    		case 'DIAS':case 'dias':case 'Dias':case 'DIA':case 'dia':case 'Dia':
+    			$fechaN=Carbon::parse($fecha)->subDays($fechaC[0]);
+    			break;
+    		case 'MESES':case 'meses':case 'Meses':case 'MES': case 'mes':case 'Mes':
+    			$fechaN=Carbon::parse($fecha)->subMonths($fechaC);
+    			break;
+    		case 'SEMANAS':case 'semanas':case 'Semanas':case 'SEMANA':case 'semana':case 'Semana':
+    			$fechaN=Carbon::parse($fecha)->subWeeks($fechaC[0]);
+    			break;
+    		case 'AÑOS':
+    			$fechaN=Carbon::parse($fecha)->subYears($fechaC[0]);
+    			break;
+    	}
+    	return $fechaN;
+    }
+
 
 }
