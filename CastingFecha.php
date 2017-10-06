@@ -1,6 +1,8 @@
 <?php
-namespace App\Helpers;
-use Carbon\Carbon();
+namespace App\Helpers\castingfecha;
+
+use Carbon\Carbon;
+use Debugbar;
 
 /**
  * Castea las fechas, y funciona como intervalo en fechas en español
@@ -43,7 +45,17 @@ class CastingFecha
 
     public function agregarFecha($cadena,$fecha)
     {
-    	$fechaC=$this->convertirNumero($cadena);
+    	if(preg_match('/\[A-Za-z]*/',$cadena)){
+            $fechaC=$this->convertirNumero($cadena);
+        }
+        else
+        {
+            $fechaC=array(
+                $cadena,
+                'DIAS'
+            );
+        }
+        Debugbar::info($fechaC);
     	switch ($fechaC[1]) {
     		case 'DIAS':case 'dias':case 'Dias':case 'DIA':case 'dia':case 'Dia':
     			$fechaN=Carbon::parse($fecha)->addDays($fechaC[0]);
@@ -58,7 +70,8 @@ class CastingFecha
     			$fechaN=Carbon::parse($fecha)->addYears($fechaC[0]);
     			break;
     	}
-    	return $fechaN;
+        Debugbar::info($fechaN);
+    	return $fechaN->format('Y-m-d');
     }
 
     public function restarFecha($cadena,$fecha)
