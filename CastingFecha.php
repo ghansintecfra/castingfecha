@@ -94,5 +94,18 @@ class CastingFecha
     	return $fechaN;
     }
 
+    public function diasParse($tiempo,$tipo='DIAS')
+    {
+        return $tiempo.' '.$tipo;
+    }
+
+    public function diferenciaFechasDias($fecha1,$fecha2)
+    {
+        $f1=Carbon::parse($fecha1);
+        $f2=Carbon::parse($fecha2);
+        $dias=$f1->diffInDays($f2);
+        return $dias;
+    }
+
 
 }
