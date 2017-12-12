@@ -38,6 +38,6 @@
             }
         }
     },
-    "minimum-stability": "master",
+    "minimum-stability": "0.1",
     "prefer-stable": true
 }
