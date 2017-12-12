@@ -16,7 +16,7 @@
       "email": "ghans@intecfra.com"
     }
   ],
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "autoload": {
     "classmap": [
       "src/"
