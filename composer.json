@@ -1,14 +1,14 @@
 {
-  "name": "ghansintecfra/castingfecha",
-  "description": "Auxiliar para la conversion de fechas de texto a fechas",
+  "name": "ghans/casting-fecha",
+  "description": "Libreria propiedad de intecfa, permite castear las palabras referentes a fechas a una fecha especifica, tambien permite sumar y restar estas a una fecha",
   "type": "library",
-  "keywords": [
-    "fecha",
-    "parseo"
-  ],
-  "support": {
-    "issues": "https://github.com/ghansintecfra/castingfecha/issues",
-    "source": "https://github.com/ghansintecfra/castingfecha"
+  "require": {
+    "nesbot/carbon": "^1.22",
+    "illuminate/support": "5.*",
+    "php": ">=5.5"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.0"
   },
   "authors": [
     {
@@ -16,24 +16,7 @@
       "email": "ghans@intecfra.com"
     }
   ],
-  "minimum-stable":"dev",
-  "prefer-stable":false,
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/ghansintecfra/castingfecha"
-    }
-  ],
-  "require": {
-    "php": ">=5.3.3",
-    "laravel/framework": "5.*",
-    "nesbot/carbon": "^1.22"
-  },
-  "require-dev": {
-    "illuminate/database": "5.5.*",
-    "mockery/mockery": "~0.9.4",
-    "phpunit/phpunit": "~5.4"
-  },
+  "minimum-stability": "stable",
   "autoload": {
     "classmap": [
       "src/"
