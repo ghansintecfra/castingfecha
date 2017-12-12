@@ -1,12 +1,6 @@
 {
   "name": "ghansintecfra/castingfecha",
-  "description": "Auxiliar para la conversion de fechas de texto a numeros",
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/ghansintecfra/castingfecha"
-    }
-  ],
+  "description": "Auxiliar para la conversion de fechas de texto a fechas",
   "type": "library",
   "keywords": [
     "fecha",
@@ -20,6 +14,14 @@
     {
       "name": "Gabriel Hans Gonzalez",
       "email": "ghans@intecfra.com"
+    }
+  ],
+  "minimum-stable":"dev",
+  "prefer-stable":false,
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/ghansintecfra/castingfecha"
     }
   ],
   "require": {
