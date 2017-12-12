@@ -1,43 +1,49 @@
 {
-    "name": "ghansintecfra/castingfecha",
-    "description": "Auxiliar para la conversion de fechas de texto a numeros",
-    "support": {
-        "issues": "https://github.com/ghansintecfra/castingfecha/issues",
-        "source": "https://github.com/ghansintecfra/castingfecha"
-    },
-    "authors": [
-        {
-            "name": "Gabriel Hans Gonzalez",
-            "email": "ghans@intecfra.com"
-        }
-    ],
-    "require": {
-        "php": ">=5.3.3",
-        "laravel/framework": "5.*",
-        "nesbot/carbon": "^1.22"
-    },
-    "require-dev": {
-        "illuminate/database": "5.5.*",
-        "mockery/mockery": "~0.9.4",
-        "phpunit/phpunit": "~5.4",
-        "barryvdh/laravel-debugbar": "^3.1",
-    },
-    "autoload": {
-        "psr-4": {
-            "CastFecha\\": "src/"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "CastFecha\\CastingFechaProvider"
-            ],
-            "aliases": {
-                "ConvertirFecha": "CastFecha\\CastingFechaFacade",
-                "Html": "Collective\\Html\\HtmlFacade"
-            }
-        }
-    },
-    "minimum-stability": "0.1",
-    "prefer-stable": true
+  "name": "ghansintecfra/castingfecha",
+  "description": "Auxiliar para la conversion de fechas de texto a numeros",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/ghansintecfra/castingfecha"
+    }
+  ],
+  "version": "0.1-dev",
+  "support": {
+    "issues": "https://github.com/ghansintecfra/castingfecha/issues",
+    "source": "https://github.com/ghansintecfra/castingfecha"
+  },
+  "authors": [
+    {
+      "name": "Gabriel Hans Gonzalez",
+      "email": "ghans@intecfra.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.3",
+    "laravel/framework": "5.*",
+    "nesbot/carbon": "^1.22"
+  },
+  "require-dev": {
+    "illuminate/database": "5.5.*",
+    "mockery/mockery": "~0.9.4",
+    "phpunit/phpunit": "~5.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "CastFecha\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "CastFecha\\CastingFechaProvider"
+      ],
+      "aliases": {
+        "ConvertirFecha": "CastFecha\\CastingFechaFacade",
+        "Html": "Collective\\Html\\HtmlFacade"
+      }
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
