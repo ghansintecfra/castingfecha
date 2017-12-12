@@ -8,6 +8,15 @@ use Carbon\Carbon;
  */
 class CastingFecha
 {
+    protected $festivos=[
+      "2018-01-01",
+      "2018-02-05",
+      "2018-03-19",
+      "2018-05-01",
+      "2018-05-05",
+      "2018-11-19",
+      "2018-12-25"
+    ];
     /**
      *
      * Divide la cadena en parte numerica del formato [0-9]*\s[A-Za-z]* en array
@@ -136,6 +145,37 @@ class CastingFecha
         $f2   = Carbon::parse($fecha2);
         $dias = $f1->diffInDays($f2);
         return $dias;
+    }
+
+    public function diasHabiles($fechaInicio,$dias)
+    {
+        $dias=$this->convertirNumero($dias);
+        $fechaInicio=Carbon::parse($fechaInicio);
+        switch ($dias[1]) {
+            case 'DIAS':case 'dias':case 'Dias':case 'DIA':case 'dia':case 'Dia':
+            $fechaN = Carbon::parse($fecha)->addDays($dias[0]);
+            break;
+            case 'MESES':case 'meses':case 'Meses':case 'MES':case 'mes':case 'Mes':
+            $fechaN = Carbon::parse($fecha)->addMonths($dias);
+            break;
+            case 'SEMANAS':case 'semanas':case 'Semanas':case 'SEMANA':case 'semana':case 'Semana':
+            $fechaN = Carbon::parse($fecha)->addWeeks($dias[0]);
+            break;
+            case 'AÑOS':
+                $fechaN = Carbon::parse($fecha)->addYears($dias[0]);
+                break;
+        }
+        if (in_array($fecha,'HAB') || in_array($fecha,'HABILES') || in_array($fecha,'habiles') || in_array($fecha,'hab')){
+            if(in_array($fechaN->toDateString(),$this->festivos))
+            {
+                $fechaN=$fechaN->addDay();
+            }
+            while($fechaN->isWeekend())
+            {
+                $fechaN=$fechaN->addDay();
+            }
+        }
+        return $fechaN;
     }
 
 
