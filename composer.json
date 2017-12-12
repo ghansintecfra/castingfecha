@@ -31,8 +31,7 @@
         "CastFecha\\CastingFechaProvider"
       ],
       "aliases": {
-        "ConvertirFecha": "CastFecha\\CastingFechaFacade",
-        "Html": "Collective\\Html\\HtmlFacade"
+        "ConvertirFecha": "CastFecha\\CastingFechaFacade"
       }
     }
   }
