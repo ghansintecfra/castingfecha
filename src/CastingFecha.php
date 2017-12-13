@@ -36,6 +36,7 @@ class CastingFecha
         } else {
             $convert = preg_split('/[\s,]+/', $cadena);
         }
+        debug($convert);
         switch ($retorno) {
             case 'N':
                 $return = preg_grep('/[\d]+/', $convert);
@@ -46,6 +47,7 @@ class CastingFecha
                 return $return;
                 break;
             default:
+                //FIXME Corregir el retorno
                 return $convert;
         }
     }
@@ -181,7 +183,8 @@ class CastingFecha
 
     public function diasHabiles($fechaInicio, $dias)
     {
-        $dias = $this->convertirNumero($dias);
+        $dias = $this->convertirNumero($dias, '');
+        debug($dias);
         $fechaInicio = Carbon::parse($fechaInicio);
         switch ($dias[1]) {
             case 'DIAS':
