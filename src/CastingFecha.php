@@ -32,7 +32,7 @@ class CastingFecha
     public function convertirNumero($cadena, $retorno = 'A')
     {
 
-        $convert = preg_split('/\s/', $cadena);
+        $convert = preg_split('/[\s]+/', $cadena);
 
         debug($convert);
         switch ($retorno) {
