@@ -6,3 +6,8 @@ composer.phar
 # composer.lock
 .idea/
 composerback.json
+fixtures/
+tests/
+spec/
+src/Prophecy/
+README.md
