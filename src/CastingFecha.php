@@ -31,8 +31,9 @@ class CastingFecha
 
     public function convertirNumero($cadena, $retorno = 'A')
     {
+        debug($cadena);
+        $convert = preg_split('/\s+/', $cadena);
 
-        $convert = preg_split('/[\s]+/', $cadena);
 
         debug($convert);
         switch ($retorno) {
@@ -181,6 +182,7 @@ class CastingFecha
 
     public function diasHabiles($fechaInicio, $dias)
     {
+        debug($dias);
         $dias = $this->convertirNumero($dias, '');
         debug($dias);
         $fechaInicio = Carbon::parse($fechaInicio);
