@@ -6,7 +6,7 @@
  * Time: 10:29 AM
  */
 
-namespace CastFecha;
+namespace Intecfra\CastingFecha;
 
 use Illuminate\Support\Facades\Facade;
 

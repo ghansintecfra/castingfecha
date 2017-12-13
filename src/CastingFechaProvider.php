@@ -1,8 +1,9 @@
 <?php
 
-namespace CastFecha;
+namespace Intecfra\CastingFecha;
 
 use Illuminate\Support\ServiceProvider;
+use Intecfra\CastingFecha\CastingFecha;
 
 class CastingFechaProvider extends ServiceProvider
 {
@@ -23,7 +24,7 @@ class CastingFechaProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('parsefecha', function () {
+        $this->app->bind('fechas', function () {
             return new CastingFecha();
         });
     }

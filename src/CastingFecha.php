@@ -1,5 +1,5 @@
 <?php
-namespace CastFecha;
+namespace Intecfra\CastingFecha;
 
 use Carbon\Carbon;
 
