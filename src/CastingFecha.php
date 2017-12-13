@@ -31,11 +31,10 @@ class CastingFecha
 
     public function convertirNumero($cadena, $retorno = 'A')
     {
-        if (!preg_match('/\d/', $cadena)) {
-            $convert = array(0, 'DIAS');
-        } else {
-            $convert = preg_split('/[\s,]+/', $cadena);
-        }
+        debug($cadena);
+
+        $convert = preg_split('/[\s,]+/', $cadena);
+
         debug($convert);
         switch ($retorno) {
             case 'N':
