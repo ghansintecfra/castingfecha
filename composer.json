@@ -22,16 +22,16 @@
       "src/"
     ],
     "psr-4": {
-      "CastFecha\\": "src/"
+      "Intecfra\\CastingFecha\\": "src/"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "CastFecha\\CastingFechaProvider"
+        "Intecfra\\CastingFecha\\CastingFechaProvider"
       ],
       "aliases": {
-        "ConvertirFecha": "CastFecha\\CastingFechaFacade"
+        "Fechas": "Intecfra\\CastingFecha\\CastingFechaFacade"
       }
     }
   }
