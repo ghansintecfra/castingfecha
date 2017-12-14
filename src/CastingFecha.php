@@ -182,9 +182,12 @@ class CastingFecha
 
     public function diasHabiles($fechaInicio, $dias)
     {
-        debug($dias);
+
         $dias = $this->convertirNumero($dias, '');
-        debug($dias);
+        $elem = count($dias);
+        if ($elem < 3)
+            $dias[$elem] = '';
+
         $fechaInicio = Carbon::parse($fechaInicio);
         switch ($dias[1]) {
             case 'DIAS':
@@ -215,8 +218,8 @@ class CastingFecha
                 $fechaN = Carbon::parse($fechaInicio)->addYears($dias[0]);
                 break;
         }
-        if (in_array($dias, 'HAB') || in_array($dias, 'HABILES') || in_array($dias, 'habiles') || in_array($dias, 'hab')) {
-            if (in_array($fechaN->toDateString(), $this->festivos)) {
+        if ($dias[2] == 'HAB' || $dias[2] == 'HABILES' || $dias[2] == 'habiles[2]' || $dias[2] == 'hab') {
+            if (array_has($fechaN->toDateString(), $this->festivos)) {
                 $fechaN = $fechaN->addDay();
             }
             while ($fechaN->isWeekend()) {
