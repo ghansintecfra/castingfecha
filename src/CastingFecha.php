@@ -220,7 +220,7 @@ class CastingFecha
                 break;
         }
         if ($dias[2] == 'HAB' || $dias[2] == 'HABILES' || $dias[2] == 'habiles[2]' || $dias[2] == 'hab') {
-            if (array_has($fechaN->toDateString(), $this->festivos)) {
+            if (in_array($fechaN->toDateString(), $this->festivos)) {
                 $fechaN = $fechaN->addDay();
             }
             while ($fechaN->isWeekend()) {
