@@ -196,6 +196,7 @@ class CastingFecha
             case 'DIA':
             case 'dia':
             case 'Dia':
+            case 'DÍAS':
                 $fechaN = Carbon::parse($fechaInicio)->addDays($dias[0]);
                 break;
             case 'MESES':
