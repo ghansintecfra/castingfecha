@@ -3,6 +3,7 @@
 namespace Intecfra\CastingFecha;
 
 use Carbon\Carbon;
+use DateTime;
 
 /**
  * Castea las fechas, y funciona como intervalo en fechas en español
