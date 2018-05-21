@@ -225,5 +225,29 @@ class CastingFecha
         return $fechaN;
     }
 
+    /**
+ * The function is_date() validates the date and returns true or false
+ * @param $str sting expected valid date format
+ * @return bool returns true if the supplied parameter is a valid date 
+ * otherwise false
+ */
+function esFecha( $str ) {
+    try {
+        $dt = new DateTime( trim($str) );
+    }
+    catch( Exception $e ) {
+        return false;
+    }
+    $month = $dt->format('m');
+    $day = $dt->format('d');
+    $year = $dt->format('Y');
+    if( checkdate($month, $day, $year) ) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
 
 }
