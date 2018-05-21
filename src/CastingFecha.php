@@ -232,19 +232,10 @@ class CastingFecha
  * otherwise false
  */
 function esFecha( $str ) {
-    try {
-        $dt = new \DateTime( trim($str) );
-    }
-    catch( Exception $e ) {
-        return false;
-    }
-    $month = $dt->format('m');
-    $day = $dt->format('d');
-    $year = $dt->format('Y');
-    if( checkdate($month, $day, $year) ) {
+    if (preg_match("^[0-9]{4}-[0-1][0-9]-[0-3][0-9]$",$date))
+    {
         return true;
-    }
-    else {
+    }else{
         return false;
     }
 }
