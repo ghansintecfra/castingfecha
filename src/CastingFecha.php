@@ -10,13 +10,13 @@ use Carbon\Carbon;
 class CastingFecha
 {
     protected $festivos = [
-        "2018-01-01",
-        "2018-02-05",
-        "2018-03-19",
-        "2018-05-01",
-        "2018-05-05",
-        "2018-11-19",
-        "2018-12-25"
+    "2018-01-01",
+    "2018-02-05",
+    "2018-03-19",
+    "2018-05-01",
+    "2018-05-05",
+    "2018-11-19",
+    "2018-12-25"
     ];
 
     /**
@@ -34,15 +34,15 @@ class CastingFecha
         $convert = preg_split('/\s+/', $cadena);
         switch ($retorno) {
             case 'N':
-                $return = preg_grep('/[\d]+/', $convert);
-                return $return;
-                break;
+            $return = preg_grep('/[\d]+/', $convert);
+            return $return;
+            break;
             case 'C':
-                $return = preg_grep('/[A-Za-z]+/', $convert);
-                return $return;
-                break;
+            $return = preg_grep('/[A-Za-z]+/', $convert);
+            return $return;
+            break;
             default:
-                return $convert;
+            return $convert;
         }
     }
 
@@ -63,7 +63,7 @@ class CastingFecha
             $fechaC = array(
                 $cadena,
                 'DIAS',
-            );
+                );
         }
 
         switch ($fechaC[1]) {
@@ -73,27 +73,27 @@ class CastingFecha
             case 'DIA':
             case 'dia':
             case 'Dia':
-                $fechaN = Carbon::parse($fecha)->addDays($fechaC[0]);
-                break;
+            $fechaN = Carbon::parse($fecha)->addDays($fechaC[0]);
+            break;
             case 'MESES':
             case 'meses':
             case 'Meses':
             case 'MES':
             case 'mes':
             case 'Mes':
-                $fechaN = Carbon::parse($fecha)->addMonths($fechaC);
-                break;
+            $fechaN = Carbon::parse($fecha)->addMonths($fechaC);
+            break;
             case 'SEMANAS':
             case 'semanas':
             case 'Semanas':
             case 'SEMANA':
             case 'semana':
             case 'Semana':
-                $fechaN = Carbon::parse($fecha)->addWeeks($fechaC[0]);
-                break;
+            $fechaN = Carbon::parse($fecha)->addWeeks($fechaC[0]);
+            break;
             case 'AÑOS':
-                $fechaN = Carbon::parse($fecha)->addYears($fechaC[0]);
-                break;
+            $fechaN = Carbon::parse($fecha)->addYears($fechaC[0]);
+            break;
         }
 
         return $fechaN->format('Y-m-d');
@@ -118,27 +118,27 @@ class CastingFecha
             case 'DIA':
             case 'dia':
             case 'Dia':
-                $fechaN = Carbon::parse($fecha)->subDays($fechaC[0]);
-                break;
+            $fechaN = Carbon::parse($fecha)->subDays($fechaC[0]);
+            break;
             case 'MESES':
             case 'meses':
             case 'Meses':
             case 'MES':
             case 'mes':
             case 'Mes':
-                $fechaN = Carbon::parse($fecha)->subMonths($fechaC);
-                break;
+            $fechaN = Carbon::parse($fecha)->subMonths($fechaC);
+            break;
             case 'SEMANAS':
             case 'semanas':
             case 'Semanas':
             case 'SEMANA':
             case 'semana':
             case 'Semana':
-                $fechaN = Carbon::parse($fecha)->subWeeks($fechaC[0]);
-                break;
+            $fechaN = Carbon::parse($fecha)->subWeeks($fechaC[0]);
+            break;
             case 'AÑOS':
-                $fechaN = Carbon::parse($fecha)->subYears($fechaC[0]);
-                break;
+            $fechaN = Carbon::parse($fecha)->subYears($fechaC[0]);
+            break;
         }
         return $fechaN;
     }
@@ -192,27 +192,27 @@ class CastingFecha
             case 'dia':
             case 'Dia':
             case 'DÍAS':
-                $fechaN = Carbon::parse($fechaInicio)->addDays($dias[0]);
-                break;
+            $fechaN = Carbon::parse($fechaInicio)->addDays($dias[0]);
+            break;
             case 'MESES':
             case 'meses':
             case 'Meses':
             case 'MES':
             case 'mes':
             case 'Mes':
-                $fechaN = Carbon::parse($fechaInicio)->addMonths($dias);
-                break;
+            $fechaN = Carbon::parse($fechaInicio)->addMonths($dias);
+            break;
             case 'SEMANAS':
             case 'semanas':
             case 'Semanas':
             case 'SEMANA':
             case 'semana':
             case 'Semana':
-                $fechaN = Carbon::parse($fechaInicio)->addWeeks($dias[0]);
-                break;
+            $fechaN = Carbon::parse($fechaInicio)->addWeeks($dias[0]);
+            break;
             case 'AÑOS':
-                $fechaN = Carbon::parse($fechaInicio)->addYears($dias[0]);
-                break;
+            $fechaN = Carbon::parse($fechaInicio)->addYears($dias[0]);
+            break;
         }
         if ($dias[2] == 'HAB' || $dias[2] == 'HABILES' || $dias[2] == 'habiles[2]' || $dias[2] == 'hab') {
             if (in_array($fechaN->toDateString(), $this->festivos)) {
@@ -231,14 +231,13 @@ class CastingFecha
  * @return bool returns true if the supplied parameter is a valid date 
  * otherwise false
  */
-function esFecha( $str ) {
-    if (preg_match("^[0-9]{4}-[0-1][0-9]-[0-3][0-9]$",$date))
-    {
-        return true;
-    }else{
-        return false;
+    function esFecha( $str ) {
+        if (preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$str)) {
+            return true;
+        } else {
+            return false;
+        }
     }
-}
 
 
 }
