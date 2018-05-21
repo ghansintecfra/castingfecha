@@ -3,7 +3,6 @@
 namespace Intecfra\CastingFecha;
 
 use Carbon\Carbon;
-use DateTime;
 
 /**
  * Castea las fechas, y funciona como intervalo en fechas en español
@@ -234,7 +233,7 @@ class CastingFecha
  */
 function esFecha( $str ) {
     try {
-        $dt = new DateTime( trim($str) );
+        $dt = new \DateTime( trim($str) );
     }
     catch( Exception $e ) {
         return false;
