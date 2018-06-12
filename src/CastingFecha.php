@@ -62,6 +62,8 @@ class CastingFecha
         $cadena=str_replace('Ú','U',$cadena);
         $cadena=str_replace('ü','u',$cadena);
         $cadena=str_replace('Ü','U',$cadena);
+        $cadena=str_replace('ñ','ni',$cadena);
+        $cadena=str_replace('Ñ','NI',$cadena);
         $cadena=strtoupper($cadena);
         return $cadena;
     }
@@ -111,7 +113,8 @@ class CastingFecha
             case 'Semana':
             $fechaN = Carbon::parse($fecha)->addWeeks($fechaC[0]);
             break;
-            case 'AÑOS':
+            case 'ANIOS':
+            case 'ANIO':
             $fechaN = Carbon::parse($fecha)->addYears($fechaC[0]);
             break;
         }
@@ -230,7 +233,8 @@ class CastingFecha
             case 'Semana':
             $fechaN = Carbon::parse($fechaInicio)->addWeeks($dias[0]);
             break;
-            case 'AÑOS':
+            case 'ANIOS':
+            case 'ANIO':
             $fechaN = Carbon::parse($fechaInicio)->addYears($dias[0]);
             break;
         }
