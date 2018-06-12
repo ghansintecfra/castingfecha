@@ -50,6 +50,18 @@ class CastingFecha
     {
         
         $cadena=str_replace('.','', $cadena);
+        $cadena=str_replace('í','i',$cadena);
+        $cadena=str_replace('Í','I',$cadena);
+        $cadena=str_replace('á','a',$cadena);
+        $cadena=str_replace('Á','A',$cadena);
+        $cadena=str_replace('é','e',$cadena);
+        $cadena=str_replace('É','e',$cadena);
+        $cadena=str_replace('ó','o',$cadena);
+        $cadena=str_replace('Ó','O',$cadena);
+        $cadena=str_replace('ú','u',$cadena);
+        $cadena=str_replace('Ú','U',$cadena);
+        $cadena=str_replace('ü','u',$cadena);
+        $cadena=str_replace('Ü','U',$cadena);
         return $cadena;
     }
 
