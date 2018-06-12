@@ -31,7 +31,7 @@ class CastingFecha
 
     public function convertirNumero($cadena, $retorno = 'A')
     {
-        $convert = preg_split('/\s+/', $cadena);
+        $convert = preg_split('/\s+/', $this->quitarPuntuacion($cadena));
         switch ($retorno) {
             case 'N':
             $return = preg_grep('/[\d]+/', $convert);
@@ -44,6 +44,13 @@ class CastingFecha
             default:
             return $convert;
         }
+    }
+
+    public function quitarPuntuacion($cadena)
+    {
+        
+        $cadena=str_replace('.','', $cadena);
+        return $cadena;
     }
 
     /**
@@ -214,7 +221,7 @@ class CastingFecha
             $fechaN = Carbon::parse($fechaInicio)->addYears($dias[0]);
             break;
         }
-        if ($dias[2] == 'HAB' || $dias[2] == 'HABILES' || $dias[2] == 'habiles[2]' || $dias[2] == 'hab') {
+        if ($dias[2] == 'HAB' || $dias[2] == 'HABILES' || $dias[2] == 'habiles[2]' || $dias[2] == 'hab' || $dias[2] == 'Hab') {
             if (in_array($fechaN->toDateString(), $this->festivos)) {
                 $fechaN = $fechaN->addDay();
             }
