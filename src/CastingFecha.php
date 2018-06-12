@@ -31,7 +31,6 @@ class CastingFecha
 
     public function convertirNumero($cadena, $retorno = 'A')
     {
-        $cadena=preg_replace('/.|,/', '', $cadena);
         $convert = preg_split('/\s+/', $cadena);
         switch ($retorno) {
             case 'N':
@@ -45,6 +44,13 @@ class CastingFecha
             default:
             return $convert;
         }
+    }
+
+    public function quitarPuntuacion($cadena)
+    {
+        
+        $cadena=str_replace('.','', $cadena);
+        return $cadena;
     }
 
     /**
