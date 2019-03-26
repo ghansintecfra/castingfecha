@@ -263,5 +263,55 @@ class CastingFecha
         }
     }
 
+    public function parseFechas($fecha)
+    {
+        $components=preg_split('/-|\//',$fecha);
+        $dia=$components[2];
+        $mes=$this->parseMeses($components[1]);
+        $anio=$components[0];
+        $fecha=$dia.'-'.$mes.'-'.$anio;
+        return $fecha;
+    }
+
+    public function parseMeses($mes)
+    {
+        switch ($mes) {
+            case '01':case 1;
+                return 'Ene';
+                break;
+            case '02':case 2:
+                return 'Feb';
+                break;
+            case '03':case 3:
+                return 'Mar';
+                break;
+            case '04':case 4:
+                return 'Abr';
+                break;
+            case '05':case 5:
+                return 'May';
+                break;
+            case '06':case 6:
+                return 'Jun';
+                break;
+            case '07':case 7:
+                return 'Jul';
+                break;
+            case '09':case 9:
+                return 'Sep';
+                break;
+            case '10':case 10:
+                return 'Oct';
+                break;
+            case '11':case 11:
+                return 'Nov';
+                break;
+            case '12':case 12:
+                return 'Dic';          
+            default:
+                return false;
+        }
+    }
+
 
 }
